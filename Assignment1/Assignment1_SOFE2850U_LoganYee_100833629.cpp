@@ -78,8 +78,7 @@ bool ValidateInput(const string &input_number, int source_base)
 }
 
 // Step 1: source base -> value. Each digit is folded in from left to right:
-// value = value * base + digit. Returns false if the number is too large to
-// store.
+// value = value * base + digit. Returns false if the number is too large to store.
 bool ToDecimal(const string &digits, int source_base, unsigned long long &value)
 {
     value = 0;
@@ -111,8 +110,8 @@ string FromDecimal(unsigned long long value, int target_base)
 }
 
 // Converts input_number from source_base to target_base. The result is
-// returned as a string because bases above 10 need letter digits, which an
-// int cannot hold. Returns an empty string if the number is too large.
+// returned as a string because bases above 10 need letter digits. 
+// Returns an empty string if the number is too large.
 // The input must already have passed ValidateInput.
 string convert_number(const string &input_number, int source_base, int target_base)
 {
@@ -129,8 +128,7 @@ string convert_number(const string &input_number, int source_base, int target_ba
     return result;
 }
 
-// Prints a prompt and reads one line. Returns false if the user asked to
-// quit (entered Q) or the input stream ended.
+// Prints a prompt and reads one line. Returns false if the user asked to quit (entered Q) or the input stream ended.
 bool ReadInput(const string &prompt, string &input)
 {
     cout << prompt;
@@ -140,8 +138,7 @@ bool ReadInput(const string &prompt, string &input)
     return !(input == "q" || input == "Q");
 }
 
-// Keeps asking for a base until a valid one is entered. Returns false if
-// the user quits.
+// Keeps asking for a base until a valid one is entered. Returns false if the user quits.
 bool ReadBase(const string &prompt, int &base)
 {
     string input;
@@ -158,14 +155,13 @@ bool ReadBase(const string &prompt, int &base)
 
 void PrintInstructions()
 {
-    cout << "=============================================\n";
-    cout << "          BASE CONVERSION CALCULATOR\n";
+    cout << "BASE CONVERSION CALCULATOR\n";
     cout << "=============================================\n";
     cout << "Converts a whole number from any base to any\n";
     cout << "other base (bases " << MIN_BASE << " to " << MAX_BASE << ").\n\n";
     cout << " - Use letters for digits above 9: A = 10, B = 11, ... Z = 35\n";
     cout << " - Common bases: 2 = binary, 8 = octal, 10 = decimal, 16 = hexadecimal\n";
-    cout << " - Enter Q at any prompt to quit\n";
+    cout << " - Enter Q or Crtl + C at any prompt to quit\n";
     cout << "   (to convert the single digit Q, enter it as 0Q)\n";
 }
 
